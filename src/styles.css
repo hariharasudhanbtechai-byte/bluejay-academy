@@ -1,1 +1,611 @@
-/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* ===== COLOR PALETTE ===== */
+:root {
+  --primary-purple: #8B5CF6;
+  --primary-blue: #3B82F6;
+  --secondary-orange: #F97316;
+  --secondary-yellow: #FBBF24;
+  --light-pink: #FCE7F3;
+  --dark-blue: #1E3A8A;
+  --white: #FFFFFF;
+  --light-bg: #F9FAFB;
+}
+
+/* ===== GLOBAL STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-bg);
+  color: #333;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fredoka One', cursive, sans-serif;
+  color: var(--primary-purple);
+  font-weight: 700;
+}
+
+p {
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ===== MODERN CARDS ===== */
+.card {
+  border-radius: 25px !important;
+  border: none !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.3s ease !important;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  border-radius: 25px;
+  font-weight: 600;
+  padding: 12px 35px;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #7C3AED, #2563EB);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, var(--secondary-orange), var(--secondary-yellow));
+  color: white;
+  border: none;
+}
+
+.btn-warning:hover {
+  background: linear-gradient(135deg, #F97316, #FBBF24);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3);
+}
+
+.btn-lg {
+  padding: 15px 45px;
+  font-size: 18px;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue)) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  padding: 15px 0;
+}
+
+.navbar-brand {
+  font-family: 'Fredoka One', cursive, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav-link {
+  color: white !important;
+  margin: 0 10px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+  background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%);
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 60px 0;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.hero-card {
+  background: white;
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
+  margin-bottom: 30px;
+}
+
+.hero-card h1 {
+  color: var(--primary-purple);
+  font-size: 45px;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.hero-card h2 {
+  color: var(--secondary-orange);
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.hero-card p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-image-wrapper img {
+  border-radius: 30px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+}
+
+/* Playful shapes in hero */
+.hero-shape {
+  position: absolute;
+  opacity: 0.15;
+}
+
+.shape-circle {
+  width: 80px;
+  height: 80px;
+  background: var(--secondary-yellow);
+  border-radius: 50%;
+}
+
+.shape-square {
+  width: 60px;
+  height: 60px;
+  background: var(--secondary-orange);
+  border-radius: 15px;
+}
+
+/* ===== WELCOME SECTION ===== */
+.welcome-section {
+  background: linear-gradient(180deg, #FAFAFA 0%, white 100%);
+  padding: 80px 0 100px 0;
+  position: relative;
+  margin-top: -40px;
+}
+
+.welcome-section h2 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.welcome-section p {
+  font-size: 18px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 50px;
+}
+
+.divider-icon {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.welcome-card {
+  text-align: center;
+  padding: 30px;
+}
+
+.welcome-card .display-4 {
+  font-size: 64px;
+  margin-bottom: 15px;
+}
+
+/* ===== PROGRAM CARDS ===== */
+.program-cards-section {
+  padding: 80px 0;
+}
+
+.program-card-wrapper {
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+  height: 350px;
+  margin-bottom: 30px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+
+.program-card-wrapper:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+.program-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.program-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+  padding: 30px;
+  color: white;
+  z-index: 2;
+}
+
+.program-card-overlay h3 {
+  color: white;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.program-card-overlay p {
+  color: #ddd;
+  font-size: 14px;
+}
+
+/* ===== FEATURES/WHAT WE OFFER ===== */
+.features-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.feature-card {
+  border-radius: 25px;
+  padding: 35px;
+  text-align: center;
+  background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+  color: white;
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+}
+
+.feature-card:hover h5 {
+  color: white;
+}
+
+.feature-card:hover p {
+  color: white;
+}
+
+.feature-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.feature-card h5 {
+  color: var(--primary-purple);
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+/* ===== ACTIVITIES SECTION ===== */
+.activities-section {
+  padding: 80px 0;
+  background: var(--light-bg);
+}
+
+.activity-card {
+  border-radius: 25px;
+  padding: 40px 25px;
+  text-align: center;
+  background: white;
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.activity-card:hover {
+  transform: scale(1.08);
+  border-color: var(--primary-purple);
+  box-shadow: 0 15px 35px rgba(139, 92, 246, 0.15);
+}
+
+.activity-card .display-3 {
+  font-size: 56px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.activity-card:hover .display-3 {
+  transform: scale(1.2);
+}
+
+/* ===== SAFETY SECTION ===== */
+.safety-section {
+  background: linear-gradient(135deg, #FCE7F3 0%, #FBCFE8 100%);
+  padding: 80px 0;
+}
+
+.safety-section h2 {
+  color: var(--primary-purple);
+  margin-bottom: 50px;
+}
+
+.safety-card {
+  border-radius: 25px;
+  padding: 30px;
+  background: white;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.safety-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
+}
+
+.safety-card .display-3 {
+  margin-bottom: 15px;
+  font-size: 48px;
+}
+
+/* ===== ADMISSIONS SECTION ===== */
+.admissions-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.admissions-section h2 {
+  font-size: 45px;
+  margin-bottom: 30px;
+}
+
+.admissions-form {
+  background: white;
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.admissions-form h4 {
+  color: var(--primary-purple);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-control {
+  border-radius: 15px;
+  border: 2px solid #E5E7EB;
+  padding: 12px 18px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary-purple);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.form-label {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+  padding: 80px 0;
+  background: var(--light-bg);
+}
+
+.contact-card {
+  border-radius: 25px;
+  padding: 35px;
+  background: white;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
+}
+
+.contact-card .display-3 {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.contact-card h5 {
+  color: var(--primary-purple);
+  margin-bottom: 10px;
+}
+
+.map-container {
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: linear-gradient(135deg, var(--dark-blue) 0%, #0F172A 100%) !important;
+  color: white;
+  padding: 60px 0 20px 0;
+  margin-top: 80px;
+}
+
+footer h5 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+footer p {
+  color: #B0BEC5;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+footer a {
+  color: #B0BEC5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: white;
+}
+
+footer hr {
+  border-color: rgba(255, 255, 255, 0.1);
+  margin: 30px 0;
+}
+
+footer .text-center {
+  color: #B0BEC5;
+  font-size: 13px;
+}
+
+/* ===== ABOUT & TEACHERS SECTION ===== */
+.about-section,
+.teachers-section {
+  padding: 80px 0;
+}
+
+.about-section {
+  background: white;
+}
+
+.teachers-section {
+  background: var(--light-bg);
+}
+
+.teacher-card {
+  border-radius: 25px;
+  overflow: hidden;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.teacher-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(139, 92, 246, 0.15);
+}
+
+.teacher-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.teacher-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 50vh;
+    padding: 40px 0;
+  }
+
+  .hero-card {
+    padding: 30px;
+  }
+
+  .hero-card h1 {
+    font-size: 32px;
+  }
+
+  .hero-card h2 {
+    font-size: 18px;
+  }
+
+  .display-5 {
+    font-size: 32px !important;
+  }
+
+  .welcome-section {
+    margin-top: -20px;
+    padding: 60px 0 80px 0;
+  }
+
+  .program-card-wrapper {
+    height: 280px;
+  }
+
+  .btn-lg {
+    padding: 12px 30px;
+    font-size: 16px;
+  }
+
+  .navbar-brand {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 32px !important;
+  }
+
+  .feature-card,
+  .activity-card,
+  .contact-card,
+  .safety-card {
+    padding: 25px;
+  }
+}
